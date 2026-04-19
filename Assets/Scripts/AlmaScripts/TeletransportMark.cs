@@ -10,6 +10,7 @@ public class TeletransportMark : MonoBehaviour
     public int soulValue = 1;
 
     private Transform playerTransform;
+    private Animator animator;
 
     private void Awake()
     {
@@ -24,6 +25,11 @@ public class TeletransportMark : MonoBehaviour
             playerTransform = player.transform;
             playerController = player.GetComponent<PlayerController>();
         }
+    }
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        animator.Play(0, 0, Random.value); // Iniciar animación en un punto aleatorio
     }
 
     private void OnMouseDown()

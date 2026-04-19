@@ -16,18 +16,24 @@ public class PlayerController : MonoBehaviour
     private Camera mainCamera;
     private bool facingLeft = true;
     private bool hasMoveTarget = false;
+    private bool isMoving = false;
     private Vector2 targetPosition;
+    private Animator myAnimator;
 
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         myRigidBody = GetComponent<Rigidbody2D>();
+        myAnimator = GetComponent<Animator>();
         mainCamera = Camera.main;
         targetPosition = myRigidBody != null ? myRigidBody.position : (Vector2)transform.position;
     }
 
     void Update()
     {
+        // Animar
+        myAnimator.SetBool("isMoving", isMoving);
+
         if (mainCamera == null || myRigidBody == null)
         {
             return;
@@ -41,6 +47,7 @@ public class PlayerController : MonoBehaviour
         // (Click Izquierdo) Mientras se mantiene, seguir al mouse.
         if (Input.GetMouseButton(0))
         {
+            isMoving = true;
             targetPosition = mouseWorld;
             hasMoveTarget = true;
             UpdateFacing(targetPosition - myRigidBody.position);
@@ -70,6 +77,11 @@ public class PlayerController : MonoBehaviour
             {
                 brickScript.Initialize(directionToMouse);
             }
+        }
+
+        if (Input.GetMouseButtonUp(0))
+        {
+            isMoving = false;
         }
     }
 
