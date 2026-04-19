@@ -5,6 +5,8 @@ public class Brick : MonoBehaviour
     [SerializeField] public int damage = 1;
     [SerializeField] public float speed = 15f;
     [SerializeField] public float maxTravelDistanceSquared = 500f;
+    [SerializeField] public float knockbackForce = 15f;
+    [SerializeField] public float splashRadius = 2f;
 
     private Rigidbody2D rb2d;
     private Collider2D projectileCollider;
@@ -64,7 +66,26 @@ public class Brick : MonoBehaviour
             {
                 Debug.Log("te pegue" + damage);
                 health.RemoveHealth(damage);
+            }
 
+            EnemyMovement enemyMovement = collision.GetComponent<EnemyMovement>();
+            if (enemyMovement != null)
+            {
+                enemyMovement.EnterPoolBallState(moveDirection * knockbackForce);
+            }
+
+            // Splash knockback: all other enemies within radius
+            Vector2 hitPoint = collision.ClosestPoint(transform.position);
+            Collider2D[] nearby = Physics2D.OverlapCircleAll(hitPoint, splashRadius);
+            foreach (Collider2D col in nearby)
+            {
+                if (col == collision) continue;
+                if (!col.CompareTag("Enemy")) continue;
+                EnemyMovement other = col.GetComponent<EnemyMovement>();
+                if (other == null) continue;
+                Vector2 dir = ((Vector2)col.transform.position - hitPoint).normalized;
+                if (dir == Vector2.zero) dir = Random.insideUnitCircle.normalized;
+                other.EnterPoolBallState(dir * knockbackForce);
             }
 
             if (rb2d != null)
