@@ -108,6 +108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   damage: 1
   speed: 50
+  maxTravelDistanceSquared: 1500
 --- !u!50 &3373250409339694478
 Rigidbody2D:
   serializedVersion: 5
