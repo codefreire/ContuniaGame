@@ -16,7 +16,7 @@ public class Brick : MonoBehaviour
     public void Initialize(Vector2 direction)
     {
         moveDirection = direction.normalized;
-        if(moveDirection == Vector2.zero)
+        if (moveDirection == Vector2.zero)
         {
             moveDirection = Vector2.right;
         }
@@ -28,5 +28,18 @@ public class Brick : MonoBehaviour
     void FixedUpdate()
     {
         rb2d.linearVelocity = moveDirection * speed;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            HealthComponent health = collision.GetComponent<HealthComponent>();
+            if (health != null)
+            {
+                health.RemoveHealth(damage);
+            }
+            Destroy(gameObject);
+        }
     }
 }

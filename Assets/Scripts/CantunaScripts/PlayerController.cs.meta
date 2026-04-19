@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 6fe55a9a65ebff540b8f7536b1adcf78
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - brick: {fileID: 7517957307250172633, guid: 586d228d705c3d9449d50a49ba181a49, type: 3}
+  - SpawnLeft: {instanceID: 0}
+  - SpawnRight: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -6,9 +6,8 @@ public class SoulManager : MonoBehaviour
     public static SoulManager Instance { get; private set; }
 
     [Header("Configuración inicial")]
-    [SerializeField] private int currentSouls = 0;
-
-    public int CurrentSouls => currentSouls;
+    [SerializeField] public int currentSouls = 0;
+    [SerializeField] public int totalSoulsCollected = 0;
 
     // Evento para actualizar UI u otros sistemas
     public event Action<int> OnSoulsChanged;
@@ -37,6 +36,7 @@ public class SoulManager : MonoBehaviour
         if (amount <= 0) return;
 
         currentSouls += amount;
+        totalSoulsCollected += amount;
         NotifyChange();
     }
 

@@ -31,55 +31,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1319016738398905237}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2445915817503702551
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5508012254896050247}
-  - component: {fileID: 4690024960443383603}
-  m_Layer: 0
-  m_Name: AttackManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5508012254896050247
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2445915817503702551}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1319016738398905237}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4690024960443383603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2445915817503702551}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6da646f5fb894f4da4f5fefb55b6ea2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackManager
-  activeAttack: {fileID: 11400000, guid: 445867f7011944b428abbaaf410cc39e, type: 2}
-  SpawnPointLeft: {fileID: 1747967322916676808}
-  SpawnPointRight: {fileID: 7694666081829405819}
-  myAttacks:
-  - {fileID: 11400000, guid: 445867f7011944b428abbaaf410cc39e, type: 2}
 --- !u!1 &7694666081829405819
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +75,7 @@ GameObject:
   - component: {fileID: 982422447355415848}
   - component: {fileID: 115456551525883183}
   - component: {fileID: 3147116668154757567}
+  - component: {fileID: 1398443595211298384}
   m_Layer: 0
   m_Name: Cantuna
   m_TagString: Player
@@ -146,7 +98,6 @@ Transform:
   m_Children:
   - {fileID: 7380919648201763347}
   - {fileID: 5789862860235308410}
-  - {fileID: 5508012254896050247}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3426664638794384575
@@ -220,7 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe55a9a65ebff540b8f7536b1adcf78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  mouseFollowSpeed: 400
+  mouseFollowSpeed: 50
+  arrivalDistance: 0.05
   brick: {fileID: 7517957307250172633, guid: 586d228d705c3d9449d50a49ba181a49, type: 3}
   SpawnLeft: {fileID: 1747967322916676808}
   SpawnRight: {fileID: 7694666081829405819}
@@ -281,9 +233,24 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 3.115
+--- !u!114 &1398443595211298384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8340002599216351961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 371e4820336b59a48b9c32c5ed70c6e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  deathSpawnPrefab: {fileID: 0}
+  maxHealth: 20
+  currentHealth: 0

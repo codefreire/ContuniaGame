@@ -2,32 +2,52 @@ using UnityEngine;
 
 public class TeletransportMark : MonoBehaviour
 {
-    public Transform target; // Arrastra aquí a Cantuña_0
+    [Header("Recoleccion")]
+    [SerializeField] private float collectDistance = 1.5f;
+    private SoulManager soulManager;
+    private PlayerController playerController;
+    [SerializeField]
+    public int soulValue = 1;
 
-    // El offset mantiene la cámara en Z = -10
-    public Vector3 offset = new Vector3(0, 0, -10);
+    private Transform playerTransform;
 
-    [Header("Límites del Mapa (Importante al hacer zoom)")]
-    // Al hacer zoom, tendrás que reajustar estos límites para no ver negro.
-    public float minX;
-    public float maxX;
-    public float minY;
-    public float maxY;
-
-    // Usamos LateUpdate para asegurarnos de que el personaje ya se movió
-    void LateUpdate()
+    private void Awake()
     {
-        if (target == null) return;
+        GameObject soulManagerObj = GameObject.Find("SoulManager");
+        if (soulManagerObj != null)
+        {
+            soulManager = soulManagerObj.GetComponent<SoulManager>();
+        }
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerTransform = player.transform;
+            playerController = player.GetComponent<PlayerController>();
+        }
+    }
 
-        // 1. Calculamos la posición deseada (posición del personaje + offset)
-        Vector3 desiredPosition = target.position + offset;
+    private void OnMouseDown()
+    {
+        if (playerController == null)
+        {
+            return;
+        }
 
-        // 2. Limitamos (Clamp) para que no se salga de las calles de Quito
-        float clampedX = Mathf.Clamp(desiredPosition.x, minX, maxX);
-        float clampedY = Mathf.Clamp(desiredPosition.y, minY, maxY);
+        playerController.TeleportTo(transform.position);
+    }
 
-        // 3. Aplicamos la posición INSTANTÁNEAMENTE (Sin suavizado)
-        // Mantenemos offset.z (que debe ser -10)
-        transform.position = new Vector3(clampedX, clampedY, offset.z);
+    private void Update()
+    {
+        if (playerTransform == null)
+        {
+            return;
+        }
+
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+        if (distanceToPlayer <= collectDistance)
+        {
+            soulManager?.AddSouls(soulValue);
+            Destroy(gameObject);
+        }
     }
 }

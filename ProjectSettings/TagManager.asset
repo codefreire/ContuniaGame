@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - alma
+  - SoulManager
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - projectile
   - Water
   - UI
   - 

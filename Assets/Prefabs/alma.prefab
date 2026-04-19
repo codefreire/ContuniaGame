@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 6954625163015861537}
   - component: {fileID: 8221007489996452056}
   - component: {fileID: 2285726779905806862}
-  - component: {fileID: 2641348098023216869}
-  - component: {fileID: 2158233549242664488}
   m_Layer: 0
   m_Name: alma
   m_TagString: alma
@@ -107,12 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0317a95fb222d554aa2409732effe48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TeletransportMark
-  target: {fileID: 6883716564405651778}
-  offset: {x: 0, y: 0, z: -10}
-  minX: 0
-  maxX: 0
-  minY: 0
-  maxY: 0
+  collectDistance: 1.5
 --- !u!58 &2285726779905806862
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -149,29 +142,3 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -1.4095232}
   m_Radius: 1.6428566
---- !u!114 &2641348098023216869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8133343822421237378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8d36f2ee4d143964089987546cb82a55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SoulManager
-  currentSouls: 0
---- !u!114 &2158233549242664488
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8133343822421237378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 274ccc7d190ca6848ab23289c0c1a60a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SoulPickup
-  soulValue: 1
