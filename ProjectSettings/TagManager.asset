@@ -15,8 +15,8 @@ TagManager:
   - Water
   - UI
   - Enemy
-  - 
-  - 
+  - Limites
+  - Player
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 302447327
+    locked: 0
+  - name: Player
+    uniqueID: 1040949407
     locked: 0
   m_RenderingLayers:
   - Default

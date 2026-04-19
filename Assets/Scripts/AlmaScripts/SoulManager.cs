@@ -17,7 +17,7 @@ public class SoulManager : MonoBehaviour
         // Patrón Singleton
         if (Instance != null && Instance != this)
         {
-            Destroy(gameObject);
+            Destroy(gameObject);    
             return;
         }
 
