@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HealthComponent : MonoBehaviour
 
@@ -38,6 +39,11 @@ public class HealthComponent : MonoBehaviour
             if (deathSpawnPrefab != null)
             {
                 Instantiate(deathSpawnPrefab, transform.position, Quaternion.identity);
+            }
+
+            if (gameObject.CompareTag("Player"))
+            {               // Aquí puedes agregar lógica adicional para el jugador, como mostrar una pantalla de Game Over
+                SceneManager.LoadScene(0);
             }
             Destroy(gameObject);
         }
