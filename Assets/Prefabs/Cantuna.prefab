@@ -77,6 +77,7 @@ GameObject:
   - component: {fileID: 3147116668154757567}
   - component: {fileID: 1398443595211298384}
   - component: {fileID: 415970455927616845}
+  - component: {fileID: 6207237520327753713}
   m_Layer: 0
   m_Name: Cantuna
   m_TagString: Player
@@ -148,7 +149,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -924061863572302271, guid: 7972e8b7af2ce5644be8063cee837351, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -174,9 +175,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   mouseFollowSpeed: 50
   arrivalDistance: 0.05
+  movementObstacleMask:
+    serializedVersion: 2
+    m_Bits: 16
+  movementContactOffset: 1
   brick: {fileID: 7517957307250172633, guid: 586d228d705c3d9449d50a49ba181a49, type: 3}
   SpawnLeft: {fileID: 1747967322916676808}
   SpawnRight: {fileID: 7694666081829405819}
+  teleportKnockbackForce: 35
+  teleportFlashDuration: 0.08
+  teleportFlashWidth: 0.5
+  teleportFlashSegments: 8
+  teleportFlashJitter: 0.2
+  teleportSplitProbeRadius: 20
+  teleportSplitMinForceMultiplier: 0.35
+  teleportSplitForceExponent: 2
+  teleportHitMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!50 &115456551525883183
 Rigidbody2D:
   serializedVersion: 5
@@ -277,3 +293,39 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &6207237520327753713
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8340002599216351961}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 16
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 3

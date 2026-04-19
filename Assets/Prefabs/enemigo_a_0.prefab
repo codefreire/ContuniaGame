@@ -86,7 +86,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1204215003779713518, guid: cd14d6e5606d1e64abccb26d09baef5d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFollow
   speed: 15
+  poolBallTime: 0.7
   spriteRenderer: {fileID: 2284620790616090181}
 --- !u!50 &9103495157248482269
 Rigidbody2D:
@@ -218,7 +219,7 @@ CapsuleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 80
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
