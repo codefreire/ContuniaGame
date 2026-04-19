@@ -47,6 +47,8 @@ public class TeletransportMark : MonoBehaviour
         if (distanceToPlayer <= collectDistance)
         {
             soulManager?.AddSouls(soulValue);
+            Debug.Log("me cogiste");
+            Debug.Log(soulManager == null);
             Destroy(gameObject);
         }
     }
