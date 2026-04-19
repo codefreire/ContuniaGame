@@ -14,7 +14,7 @@ TagManager:
   - projectile
   - Water
   - UI
-  - 
+  - Enemy
   - 
   - 
   - 
@@ -41,8 +41,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: FrontGround
+    uniqueID: 327457963
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 302447327
     locked: 0
   m_RenderingLayers:
   - Default
