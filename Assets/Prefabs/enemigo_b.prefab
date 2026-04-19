@@ -33,7 +33,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.11, y: -3.67, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2853612094931055486}
@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFollow
   speed: 7.5
+  poolBallTime: 0.7
   spriteRenderer: {fileID: 4133507962648951772}
 --- !u!50 &8826180410301220985
 Rigidbody2D:
@@ -93,7 +94,7 @@ CapsuleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 80
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -159,7 +160,7 @@ CapsuleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 80
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -284,7 +285,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 3061435010198208682, guid: 4635e0ca76f55934b87668005575c5b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

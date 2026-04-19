@@ -80,8 +80,8 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1040949407
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: 4566738791550421929, guid: 0fea513f689201748989ad810238cef8, type: 3}
@@ -109,6 +109,8 @@ MonoBehaviour:
   damage: 1
   speed: 50
   maxTravelDistanceSquared: 1500
+  knockbackForce: 30
+  splashRadius: 10
 --- !u!50 &3373250409339694478
 Rigidbody2D:
   serializedVersion: 5
