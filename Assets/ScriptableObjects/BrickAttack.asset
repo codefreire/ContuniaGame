@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ecdb3e00a6cf4348b62de22cf5fcbed, type: 3}
+  m_Name: BrickAttack
+  m_EditorClassIdentifier: Assembly-CSharp::Attack
+  name: Ladrillo
+  description: Ladrillos pa' toda la familia.
+  cardSprite: {fileID: 4566738791550421929, guid: 0fea513f689201748989ad810238cef8, type: 3}
+  prefab: {fileID: 7517957307250172633, guid: 586d228d705c3d9449d50a49ba181a49, type: 3}
+  damage: 1
+  cadence: 0.5
+  speed: 0
+  maxDistance: 0
